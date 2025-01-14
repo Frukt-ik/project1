@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Person index</title>
+</head>
+<body>
+<div th:each="person : ${people}">
+    <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getId()} + ' ::: ' + ${person.getFullName()}">ID + FullName</a>
+</div>
+_____________________________________________
+<br/>
+<a th:href="@{/people/new}"> Добавить человека</a>
+</body>
+</html>

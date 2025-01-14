@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Person for id</title>
+</head>
+<body>
+
+<p th:text="${person.fullName} + ', ' + ${person.yearOfBorn}">Full Name And Year Of Born</p>
+<br/>
+<div th:if="${#lists.isEmpty(BooksActual)}">
+    <p>Человек пока не взял ни одной книги</p>
+</div>
+<!--!#list.isEmpty(BooksActual)-->
+<!--BooksActual != null-->
+<div th:if="${!#lists.isEmpty(BooksActual)}" th:each="book : ${BooksActual}" >
+    <p th:text="${book.getName()}">Название книги</p>
+</div>
+
+________________________________________
+<form  th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+    <input type="submit" value="Редактировать">
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/people/{id}(id=${person.id})}">
+    <input type="submit" value="Удалить">
+</form>
+</body>
+</html>

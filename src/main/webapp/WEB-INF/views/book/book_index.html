@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlnm="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book index</title>
+</head>
+<body>
+<div th:each="book : ${books}">
+    <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getId()} + ' ::: ' + ${book.getName()} + ' ::: ' + ${book.getAuthor()} + ' ::: ' + ${book.getYearOfPublication()}">
+        ID+Name+Author+YearOfPublication
+    </a>
+</div>
+_____________________________________________
+<br/>
+<a th:href="@{/books/new}"> Добавить книгу</a>
+</body>
+</html>
